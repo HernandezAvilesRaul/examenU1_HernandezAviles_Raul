@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset='utf-8'>
+    <style>
+        body {
+            
+            background-image: url("https://images2.alphacoders.com/119/thumb-1920-119842.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+
+        }
+
+
+        body {
+            color: white;
+        }
+
+        #myButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+
+
+</head>
+
+<body>
+
+<button id="myButton" onclick="changeBackground()">Cambiar Fondo</button>
+
+
+<center>
+    <h1> GearsOfWar </h1>
+    <button id="myButton1" onclick="hideMessage()">Hola mundo</button>
+</center>
+<br>
+<center><b>RESEÑA</b></center>
+<br>
+<br>
+<center>
+    <d>Gears of War es un juego de disparos en tercera persona que ha cautivado a millones de jugadores en todo el
+        mundo.
+        Con su ambientación post-apocalíptica y su estilo de juego frenético, el juego te sumerge en una intensa
+        experiencia
+        de combate contra hordas de enemigos. La historia sigue a un equipo de soldados de élite llamados Gears mientras
+        luchan
+        contra los Locust, una raza alienígena que ha emergido del subsuelo y amenaza con destruir la humanidad. El
+        juego cuenta
+        con impresionantes gráficos, un sistema de juego fluido y emocionante, y una banda sonora épica que complementa
+        perfectamente
+        la acción en pantalla. Si eres fanático de los juegos de acción y disparos, Gears of War es definitivamente un
+        juego que no
+        puedes perderte.</d>
+</center>
+<br>
+<br>
+<center><b>CALIFICACION 10/10 </b></center>
+<center><b>NO LEO LLOROS</b></center>
+
+<center>
+    <table cellspacing="10" cellpadding="10" border="3" style="background-color:#3171c6;margin-top:20px;">
+</center>
+
+<caption>Datos del juego</caption>
+
+<tr>
+    <th>Año de publicación</th>
+    <th>Productora</th>
+</tr>
+
+<tr>
+    <td>2006</td>
+    <td>Epic Games y The Coalition</td>
+</tr>
+
+</table>
+
+<p id="myParagraph">Por favor pongame 10</p>
+<button onclick="changeText()">Cambiar Texto</button>
+
+<div style="position: absolute; bottom: 5%; left: 50%; transform: translate(-50%, 0);">
+    <img src="E:\Repertorio\examenU1_HernandezAviles_Raul\imagen.png" alt="Imagen Logo" width="250" height="100" />
+</div>
+
+<button id="myButton3" onclick="writeText()">Escribir Texto</button>
+
+<div id="miDiv"></div>
+
+</div>
+
+    <script>
+
+        function changeBackground() {
+            var body = document.body;
+            var currentImage = body.style.backgroundImage;
+
+            if (currentImage === 'url("https://images2.alphacoders.com/119/thumb-1920-119842.jpg")') {
+                body.style.backgroundImage = 'url("https://pm1.narvii.com/6265/453af455a0f8a30b18343a6554d2c16935926b0e_hq.jpg")';
+            } else {
+                body.style.backgroundImage = 'url("https://images2.alphacoders.com/119/thumb-1920-119842.jpg")';
+            }
+        }
+
+    </script>
+
+    <script>
+ var texts = ["Quiero pasar", "Por favor", "pongame 10"]; 
+        var currentIndex = 0; 
+
+        function changeText() {
+            var paragraph = document.getElementById("myParagraph");
+            paragraph.textContent = texts[currentIndex]; 
+
+            currentIndex++; 
+                        if (currentIndex >= texts.length) {
+                currentIndex = 0;
+            }
+        }
+    </script>
+
+<script>
+    function hideMessage() {
+        var message = document.getElementById("myButton1");
+        message.style.display = "none";
+    }
+</script>
+
+<script>
+    function writeText() {
+        var div = document.getElementById("miDiv");
+        var h1 = document.createElement("h1");
+        h1.textContent = "Este texto no lo escribió RaulHdez, lo escribió JavaScript";
+        div.appendChild(h1);
+    }
+</script>
+    
+
+</body>
+
+</html>
