@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Formulario</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src='scripts.js'></script>
+
+    <style>
+        body {
+            background-color: #000000;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <center>
+        <h1 id="headStart"></h1>
+    </center>
+
+    <form action="newPage.html" method="get" onsubmit=" return Verification()">
+
+        <label>Nombre:</label><input type="text" name="Nombre" required><br>
+        <label>Apellido:</label><input type="text" name="Apellido" required><br>
+        <label>Email:</label><input type="email" name="Email" required><br>
+        <label>Fecha de Nacimiento:</label>
+        <input type="date" name="FechaNacimiento" required><br>
+        <label>Teléfono:</label><input type="tel" name="Teléfono" required><br>
+        <label>Usuario:</label><input type="text" name="User"><br>
+        <label>Contraseña:</label><input type="password" id="contra" name="Contra" required><br>
+        <label>Repetir contraseña:</label><input type="password" id="reContra" name="ReContra" required><br>
+
+        <center> <span id="mensajeError" style="color:red"></span></center>
+        <input type="submit" value="Enviar">
+
+    </form>
+    <script>
+
+        function Verification() {
+            var password = document.getElementById('contra').value;
+            var confirmPassword = document.getElementById('reContra').value;
+
+            if (password !== confirmPassword) {
+                document.getElementById('mensajeError').textContent = 'Las contraseñas no coinciden.';
+                return false;
+            }
+
+            if (password.length <= 5) {
+                document.getElementById('mensajeError').textContent = 'La contraseña no es segura.';
+                return false;
+            }
+
+            return true;
+        }
+
+        function headStart() {
+            var Nombres = document.getElementsByName('Nombre')[0].value;
+
+            if (Nombres === "") {
+                document.getElementById('headStart').textContent = "Bienvenido";
+            } else {
+                document.getElementById('headStart').textContent = "Bienvenido, " + Nombres + "!";
+            }
+        }
+
+        headStart();
+
+
+    </script>
+</body>
+
+</html>

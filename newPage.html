@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+    <style>
+        body {
+            background-color: #000000;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <h1 id="mensaje"></h1>
+        <h2 id="lastName"></h2>
+        <a href="mailto:Email" id="youGot" style="color: rgb(143, 197, 245)"></a><br />
+        <br />
+        <a href="mailto:Teléfono" id="telephone" style="color: rgb(143, 197, 245)"></a><br />
+        <br />
+        <h2 id="edad"></h2>
+    </center>
+
+    <script>
+        getParameter = (key) => {
+            address = window.location.search;
+
+            parameterList = new URLSearchParams(address);
+
+            return parameterList.get(key);
+        };
+
+        console.log(getParameter("Nombre"));
+        var nombre = getParameter("Nombre");
+
+        if (nombre != null) {
+            document.getElementById("mensaje").innerHTML = "Bienvenido/a " + nombre;
+        }
+
+        console.log(getParameter("Apellido"));
+        var lastName = getParameter("Apellido");
+
+        if (lastName != null) {
+            document.getElementById("lastName").innerHTML = lastName;
+        }
+
+        console.log(getParameter("Email"));
+        var email = getParameter("Email");
+
+        if (email != null) {
+            document.getElementById("youGot").innerHTML = email;
+        }
+
+        console.log(getParameter("Teléfono"));
+        var phone = getParameter("Teléfono");
+
+        if (phone != null) {
+            document.getElementById("telephone").innerHTML = phone;
+        }
+
+        var fechaNacimiento = new Date(parameterList.get('FechaNacimiento'));
+
+ 
+
+        function calcularEdad(fechaNacimiento) {
+            var fechaActual = new Date();
+            var edad = fechaActual.getFullYear - fechaNacimiento.getFullYear();
+
+            var diferenciaMeses = fechaActual.getMonth() - fechaNacimiento.getMonth();
+            if (diferenciaMeses < 0 || (diferenciaMeses === 0 && fechaActual.getDate() < fechaNacimiento.getDate())) {
+                edad--;
+            }
+
+            return edad;
+        }
+
+        var edad = calcularEdad(fechaNacimiento);
+        document.getElementById('edad').innerHTML = 'Edad: ' + edad + ' años';
+
+    </script>
+</body>
+
+</html>
